@@ -3,10 +3,12 @@
     --primary-color: #6A89A7;
     --secondary-color: #BDDDFC;
     --tertiary-color: #88BDF2;
-    --bg-color: #384959;
+    --bg-color: #1e2831;
 }
 
-html{font-size: 62.5%;}
+html {
+    font-size: 62.5%;
+}
 
 * {
     margin: 0;
@@ -20,6 +22,7 @@ html{font-size: 62.5%;}
     display: flex;
     width: 100%;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 header-content {
@@ -42,4 +45,42 @@ header-content {
     font-size: 2rem;
     margin: 10px;
     text-align: center;
+}
+
+.action-container {
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    align-items: center;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.action-container p {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin: 10px;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+}
+
+.action-container button {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    color: var(--secondary-color);
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem;
+}
+
+.filter-container button { 
+    margin: 2.5rem;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    border: none;
 }
