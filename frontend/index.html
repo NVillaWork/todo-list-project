@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="js/app.js" defer></script>
     <title>Todo List by Villa</title>
 </head>
+
 <body>
     <header class="header">
         <div class="header-content">
@@ -16,14 +19,26 @@
     <main>
         <div class="action-container">
             <p>What Needs to be Done?</p>
-            <button>+</button>
+            <button id="add-task">+</button>
         </div>
         <nav class="filter-container">
-            <button>All (0)</button>
+            <button id="all-tasks">All (0)</button>
             <button>Active (0)</button>
             <button>Completed (0)</button>
         </nav>
+
+        <section id="task-grid" class="task-grid" aria-label="All tasks"></section>
+
+        <dialog id="task-dialog">
+            <form id="task-form">
+                <label style="color:white" for="task-title">What needs to be done?</label>
+                <input  style="color:white" type="text" id="task-title" placeholder="What needs to be done?" required>
+                <button style="color:white" type="submit" id="create-task">Add task</button>
+                <button style="color:white" type="button" id="cancel-task">Cancel</button>
+            </form>
+        </dialog>
     </main>
 
 </body>
+
 </html>

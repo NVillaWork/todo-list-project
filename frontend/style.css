@@ -42,7 +42,7 @@ header-content {
 
 .header p {
     color: var(--tertiary-color);
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin: 10px;
     text-align: center;
 }
@@ -72,6 +72,10 @@ header-content {
     color: var(--secondary-color);
 }
 
+.hidden {
+    display: none;
+}
+
 .filter-container {
     display: flex;
     justify-content: center;
@@ -83,4 +87,42 @@ header-content {
     color: var(--primary-color);
     font-size: 2.5rem;
     border: none;
+}
+
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 2rem 3rem;
+}
+
+.task-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+}
+
+.task-title {
+    overflow-wrap: anywhere;
+}
+
+.task-card input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 1.8rem;
+    height: 1.8rem;
+    accent-color: var(--tertiary-color);
+}
+
+@media (max-width: 600px) {
+    .task-grid {
+        grid-template-columns: 1fr;
+    }
 }
