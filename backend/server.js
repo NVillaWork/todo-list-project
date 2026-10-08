@@ -1,4 +1,5 @@
 const express = require("express");
+const crypto = require("crypto");
 const db = require("./db");
 
 const app = express();
@@ -10,6 +11,31 @@ app.get("/api/tasks", (req, res) => {
     const tasks = db.prepare("SELECT * FROM tasks").all();
 
     res.json(tasks);
+});
+
+app.post("/api/tasks", (req, res) => {
+    const { title } = req.body;
+
+    if (!title || !title.trim()) {
+        return res.status(400).json({
+            error: "Title is required"
+        });
+    }
+
+    const id = crypto.randomUUID();
+
+    const statement = db.prepare(`
+        INSERT INTO tasks (id, title)
+        VALUES (?, ?)
+    `);
+
+    statement.run(id, title.trim());
+
+    res.status(201).json({
+        id,
+        title: title.trim(),
+        completed: false
+    });
 });
 
 app.listen(PORT, () => {
