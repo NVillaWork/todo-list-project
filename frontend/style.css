@@ -1,3 +1,4 @@
+/* Shared colors and typeface used throughout the interface. */
 :root {
     --ff: roboto, sans-serif;
     --primary-color: #6A89A7;
@@ -6,10 +7,12 @@
     --bg-color: #1e2831;
 }
 
+/* Use rem-based sizing and a consistent box model across the page. */
 html {
     font-size: 62.5%;
 }
 
+/* Reset default spacing and apply the app's base typography and background. */
 * {
     margin: 0;
     padding: 0;
@@ -18,6 +21,7 @@ html {
     background-color: var(--bg-color);
 }
 
+/* Center the page heading and its supporting text. */
 .header {
     display: flex;
     width: 100%;
@@ -47,6 +51,7 @@ header-content {
     text-align: center;
 }
 
+/* Keep task creation controls grouped and centered. */
 .action-container {
     display: flex;
     justify-content: center;
@@ -76,19 +81,29 @@ header-content {
     display: none;
 }
 
+/* Separate filter controls from the task grid. */
 .filter-container {
     display: flex;
     justify-content: center;
     margin: 3rem;
 }
 
-.filter-container button { 
+/* Highlight the active filter and indicate that filters are clickable. */
+.filter-container button {
     margin: 2.5rem;
     color: var(--primary-color);
     font-size: 2.5rem;
     border: none;
+    cursor: pointer;
 }
 
+.filter-container button[aria-pressed="true"] {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+}
+
+/* Lay task cards out responsively, with consistent spacing and a maximum width. */
 .task-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -98,6 +113,7 @@ header-content {
     padding: 0 2rem 3rem;
 }
 
+/* Arrange each task title and completion checkbox in a compact card. */
 .task-card {
     display: flex;
     align-items: center;
@@ -111,9 +127,24 @@ header-content {
 }
 
 .task-title {
+    flex: 1;
     overflow-wrap: anywhere;
 }
 
+/* Group completion and deletion controls, and prevent duplicate in-flight actions. */
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Visually distinguish completed tasks without removing them from the list. */
+.task-card.completed .task-title {
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+
+/* Keep the completion control easy to see and operate. */
 .task-card input[type="checkbox"] {
     flex: 0 0 auto;
     width: 1.8rem;
@@ -121,6 +152,21 @@ header-content {
     accent-color: var(--tertiary-color);
 }
 
+/* Keep the destructive action visible and consistent with the task card. */
+.delete-task {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.task-actions button:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+/* Use a single-column task list on narrow screens. */
 @media (max-width: 600px) {
     .task-grid {
         grid-template-columns: 1fr;

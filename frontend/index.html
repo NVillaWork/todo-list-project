@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!-- App title and short description. -->
     <header class="header">
         <div class="header-content">
             <h1>Todo List</h1>
@@ -17,18 +18,22 @@
         </div>
     </header>
     <main>
+        <!-- Entry point for opening the new-task form. -->
         <div class="action-container">
             <p>What Needs to be Done?</p>
             <button id="add-task">+</button>
         </div>
-        <nav class="filter-container">
-            <button id="all-tasks">All (0)</button>
-            <button>Active (0)</button>
-            <button>Completed (0)</button>
+        <!-- Filter buttons also display live counts and expose the selected state. -->
+        <nav class="filter-container" aria-label="Filter tasks">
+            <button id="all-tasks" type="button" aria-pressed="true">All (0)</button>
+            <button id="active-tasks" type="button" aria-pressed="false">Active (0)</button>
+            <button id="completed-tasks" type="button" aria-pressed="false">Completed (0)</button>
         </nav>
 
+        <!-- JavaScript renders the currently visible task cards into this section. -->
         <section id="task-grid" class="task-grid" aria-label="All tasks"></section>
 
+        <!-- Native modal form used to create a task or cancel without saving. -->
         <dialog id="task-dialog">
             <form id="task-form">
                 <label style="color:white" for="task-title">What needs to be done?</label>
